@@ -193,6 +193,10 @@ if GameTable[game.PlaceId] == nil then
     local titletween = ts:Create(Titleandshit, info, {BackgroundTransparency = 1}):Play()
     local icontween = ts:Create(ImageLabel, info, {ImageTransparency = 1}):Play()
     local texttween = ts:Create(TextLabel, info, {TextTransparency = 1}):Play()
+
+    setclipboard("discord.gg/peaches")
+
+    game:GetService("Players").LocalPlayer:Kick("Game not supported! Copied invite to clipboard.")
 else
     warn("Game is supported!")
 
