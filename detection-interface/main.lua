@@ -160,12 +160,18 @@ Yes.TextXAlignment = Enum.TextXAlignment.Left
 
 task.wait(1)
 
-warn(game.Name.." is supported!")
+local CoreGui = game:GetService("StarterGui")
+
+local GameTable = {
+    [4483381587] = "https://raw.githubusercontent.com/spooderman11/PeachHub/main/detection-interface/main.lua"
+}
+
+
+
 task.wait(0.3)
 local titletween = ts:Create(Titleandshit, info, {BackgroundTransparency = 0}):Play()
 local icontween = ts:Create(ImageLabel, info, {ImageTransparency = 0}):Play()
 local texttween = ts:Create(TextLabel, info, {TextTransparency = 0}):Play()
-
 task.wait(2)
 local titletween = ts:Create(MainFrame, info, {BackgroundTransparency = 0}):Play()
 local icontween = ts:Create(icon, info, {ImageTransparency = 0}):Play()
@@ -175,21 +181,44 @@ local texttween = ts:Create(Desc, info, {TextTransparency = 0}):Play()
 task.wait(3)
 local texttween = ts:Create(Yes, info, {TextTransparency = 0}):Play()
 
-_G.Executed = false
+if GameTable[game.PlaceId] == nil then
+    local texttween = ts:Create(GameName, info, {TextTransparency = 1}):Play()
+    local texttween = ts:Create(Desc, info, {TextTransparency = 1}):Play()
+    local texttween = ts:Create(Yes, info, {TextTransparency = 1}):Play()
+    task.wait(1)
+    local icontween = ts:Create(icon, info, {ImageTransparency = 1}):Play()
+    local texttween = ts:Create(Message, info, {TextTransparency = 1}):Play()
+    task.wait(0.99)
+    local titletween = ts:Create(MainFrame, info, {BackgroundTransparency = 1}):Play()
+    local titletween = ts:Create(Titleandshit, info, {BackgroundTransparency = 1}):Play()
+    local icontween = ts:Create(ImageLabel, info, {ImageTransparency = 1}):Play()
+    local texttween = ts:Create(TextLabel, info, {TextTransparency = 1}):Play()
+else
+    warn("Game is supported!")
 
-uis.InputBegan:Connect(function(Input)
-    if Input.KeyCode == Enum.KeyCode.Y then
-        task.wait(0.3)
-        local texttween = ts:Create(GameName, info, {TextTransparency = 1}):Play()
-        local texttween = ts:Create(Desc, info, {TextTransparency = 1}):Play()
-        local texttween = ts:Create(Yes, info, {TextTransparency = 1}):Play()
-        task.wait(1)
-        local icontween = ts:Create(icon, info, {ImageTransparency = 1}):Play()
-        local texttween = ts:Create(Message, info, {TextTransparency = 1}):Play()
-        task.wait(0.99)
-        local titletween = ts:Create(MainFrame, info, {BackgroundTransparency = 1}):Play()
-        local titletween = ts:Create(Titleandshit, info, {BackgroundTransparency = 1}):Play()
-        local icontween = ts:Create(ImageLabel, info, {ImageTransparency = 1}):Play()
-        local texttween = ts:Create(TextLabel, info, {TextTransparency = 1}):Play()
-    end
-end)
+    CoreGui:SetCore("SendNotification", {
+        Title = "Discord";
+        Text = "We would appreciate if you joined our discord (Copied)";
+        Duration = 10;
+    })
+    setclipboard("https://discord.gg/R3QMj5U8Pn")
+
+    uis.InputBegan:Connect(function(Input)
+        if Input.KeyCode == Enum.KeyCode.Y then
+            task.wait(0.3)
+            local texttween = ts:Create(GameName, info, {TextTransparency = 1}):Play()
+            local texttween = ts:Create(Desc, info, {TextTransparency = 1}):Play()
+            local texttween = ts:Create(Yes, info, {TextTransparency = 1}):Play()
+            task.wait(1)
+            local icontween = ts:Create(icon, info, {ImageTransparency = 1}):Play()
+            local texttween = ts:Create(Message, info, {TextTransparency = 1}):Play()
+            task.wait(0.99)
+            local titletween = ts:Create(MainFrame, info, {BackgroundTransparency = 1}):Play()
+            local titletween = ts:Create(Titleandshit, info, {BackgroundTransparency = 1}):Play()
+            local icontween = ts:Create(ImageLabel, info, {ImageTransparency = 1}):Play()
+            local texttween = ts:Create(TextLabel, info, {TextTransparency = 1}):Play()
+
+            loadstring(game:HttpGet(GameTable[game.PlaceId]))()
+        end
+    end)
+end
