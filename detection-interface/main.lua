@@ -178,7 +178,7 @@ local icontween = ts:Create(icon, info, {ImageTransparency = 0}):Play()
 local texttween = ts:Create(Message, info, {TextTransparency = 0}):Play()
 local texttween = ts:Create(GameName, info, {TextTransparency = 0}):Play()
 local texttween = ts:Create(Desc, info, {TextTransparency = 0}):Play()
-task.wait(3)
+task.wait(2)
 local texttween = ts:Create(Yes, info, {TextTransparency = 0}):Play()
 
 if GameTable[game.PlaceId] == nil then
@@ -196,7 +196,7 @@ if GameTable[game.PlaceId] == nil then
 
     setclipboard("discord.gg/peaches")
 
-    game:GetService("Players").LocalPlayer:Kick("Game not supported! Copied invite to clipboard.")
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/spooderman11/PeachHub/main/detection-interface/PrompUi/Prompt.lua"), true))()
 else
     warn("Game is supported!")
 
@@ -205,7 +205,8 @@ else
         Text = "We would appreciate if you joined our discord (Copied)";
         Duration = 10;
     })
-    setclipboard("https://discord.gg/R3QMj5U8Pn")
+
+    setclipboard("https://discord.gg/peaches")
 
     uis.InputBegan:Connect(function(Input)
         if Input.KeyCode == Enum.KeyCode.Y then
@@ -213,10 +214,8 @@ else
             local texttween = ts:Create(GameName, info, {TextTransparency = 1}):Play()
             local texttween = ts:Create(Desc, info, {TextTransparency = 1}):Play()
             local texttween = ts:Create(Yes, info, {TextTransparency = 1}):Play()
-            task.wait(1)
             local icontween = ts:Create(icon, info, {ImageTransparency = 1}):Play()
             local texttween = ts:Create(Message, info, {TextTransparency = 1}):Play()
-            task.wait(0.99)
             local titletween = ts:Create(MainFrame, info, {BackgroundTransparency = 1}):Play()
             local titletween = ts:Create(Titleandshit, info, {BackgroundTransparency = 1}):Play()
             local icontween = ts:Create(ImageLabel, info, {ImageTransparency = 1}):Play()
